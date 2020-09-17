@@ -1,0 +1,3 @@
+spring:
+  profiles:
+    active: dev  #选择application配置文件
