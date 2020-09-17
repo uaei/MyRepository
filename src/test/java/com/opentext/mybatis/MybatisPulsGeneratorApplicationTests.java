@@ -1,12 +1,41 @@
 package com.opentext.mybatis;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.opentext.poi.entity.SgmCity;
+import com.opentext.poi.entity.poi.*;
+import com.opentext.poi.model.*;
+import com.opentext.poi.service.impl.SgmCityServiceImpl;
+import com.opentext.utils.uuid.SgmIdKit;
+import com.opentext.utils.uuid.UUIDUtils;
+import org.apache.commons.io.FileUtils;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.assertj.core.util.Lists;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.client.RestTemplate;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.*;
 
 //@RunWith(SpringRunner.class)
 //@SpringBootTest(classes = MybatisPulsGeneratorApplication.class)
 class MybatisPulsGeneratorApplicationTests {
 
-    /*@Autowired
+    @Autowired
     private RestTemplate restTemplate;
 
 
@@ -14,9 +43,9 @@ class MybatisPulsGeneratorApplicationTests {
 	void contextLoads() {
 	}
 
-    *//**
+    /**
      * 查询所有城市的测试接口
-     *//*
+     */
     @Test
     public void httpGetCity() {
         String MtDTOStr = this.restTemplate.getForObject("https://openapi.meituan.com/poiCode/city", String.class);
@@ -29,9 +58,9 @@ class MybatisPulsGeneratorApplicationTests {
     }
 
 
-    *//**
+    /**
      * 查询城市和区域的测试接口
-     *//*
+     */
     @Test
     public void httpGetCityAndArea(){
         String MtDTOStr = this.restTemplate.getForObject("https://openapi.meituan.com/poiCode/city", String.class);
@@ -61,9 +90,9 @@ class MybatisPulsGeneratorApplicationTests {
     }
 
 
-    *//**
+    /**
      * 查询区域的测试接口
-     *//*
+     */
     @Test
     public void httpGetArea(){
 
@@ -78,9 +107,9 @@ class MybatisPulsGeneratorApplicationTests {
     }
 
 
-    *//**
+    /**
      * 查询商圈的测试接口
-     *//*
+     */
     @Test
     public void  getCommerce(){
 
@@ -114,10 +143,10 @@ class MybatisPulsGeneratorApplicationTests {
     }
 
 
-    *//**
+    /**
      * 创建美团城市excel
      * @throws IOException
-     *//*
+     */
     @Test
     public void createMtCityExcel() throws IOException {
 
@@ -185,10 +214,10 @@ class MybatisPulsGeneratorApplicationTests {
 
 
 
-    *//**
+    /**
      * 创建美团区域excel
      * @throws IOException
-     *//*
+     */
     @Test
     public void createMtAreaExcel() throws IOException {
         Map<Integer,String> cityCodeList = new HashMap<>();
@@ -331,10 +360,10 @@ class MybatisPulsGeneratorApplicationTests {
     }
 
 
-    *//**
+    /**
      * 创建美团商圈excel
      * @throws IOException
-     *//*
+     */
     @Test
     public void createMtCommerceAreaExcel() throws IOException {
         //先获取所有城市的code
@@ -436,9 +465,9 @@ class MybatisPulsGeneratorApplicationTests {
 
 
 
-    *//**
+    /**
      * 批量导入数据到数据库
-     *//*
+     */
     @Autowired
     SgmCityServiceImpl sgmCityServiceImpl;
 
@@ -764,7 +793,7 @@ class MybatisPulsGeneratorApplicationTests {
 
 
             //生成百度城市数据
-*//*            if (i < baiDuCityMapListHashMap.entrySet().size()){
+          if (i < baiDuCityMapListHashMap.entrySet().size()){
 
                 i=i+1;
                 //创建第i行
@@ -778,7 +807,7 @@ class MybatisPulsGeneratorApplicationTests {
                 //parentCode
                 cell2 = nextRow.createCell(2);
                 cell2.setCellValue(baiDuCityMap.getCityCode());
-            }*//*
+            }
 
 
             //生成百度区域数据
@@ -906,6 +935,6 @@ class MybatisPulsGeneratorApplicationTests {
         readWorkbook.close();
         writeWorkbook.close();
         System.out.println("百度分类excel创建完成。。。。。。。。。。。。。。");
-    }*/
+    }
 
 }
