@@ -4,7 +4,7 @@ package com.opentext.poi.exception.exceptionHandler2;
  * 编写自定义异常类：
  * @Author GuYaWei
  * @created 2020/9/17 15:50
- * @description：spring 对于 RuntimeException 异常才会进行事务回滚。
+ * @description：spring 对于 RuntimeException 异常才会进行事务回滚。。。
  */
 public class MyException extends RuntimeException{
 

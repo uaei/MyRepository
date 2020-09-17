@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * @Author GuYaWei
  * @created 2020/9/17 15:28
- * @description： controller增强器使用说明
+ * @description： controller增强器使用说明。
  */
 //@RestControllerAdvice
 public class MyControllerAdvice {

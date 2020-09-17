@@ -15,7 +15,7 @@ import java.util.Map;
 public class MyRestControllerAdvice {
 
     /**
-     * 全局异常捕获处理
+     * 全局异常捕获处理。
      * @param ex
      */
     @ExceptionHandler(Exception.class)
