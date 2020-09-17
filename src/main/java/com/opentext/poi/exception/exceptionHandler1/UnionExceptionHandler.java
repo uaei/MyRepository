@@ -7,14 +7,13 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * @Author GuYaWei
  * @created 2020/9/15 17:14
  * @description
  */
-@RestControllerAdvice
+//@RestControllerAdvice
 public class UnionExceptionHandler {
 
     Logger logger = LoggerFactory.getLogger(UnionExceptionHandler.class);

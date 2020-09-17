@@ -2,7 +2,7 @@ package com.opentext.poi.controller;
 
 
 import com.opentext.poi.entity.BaiduCity;
-import com.opentext.poi.exception.exceptionHandler1.RRException;
+import com.opentext.poi.exception.exceptionHandler2.MyException;
 import com.opentext.poi.response.ResponseModel;
 import com.opentext.poi.service.BaiduCityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +34,11 @@ public class BaiduCityController {
 
 
     @GetMapping("/selectBDCityByCode")
-    private ResponseModel selectBDCityByCode(@RequestParam("code") String code) {
+    private ResponseModel selectBDCityByCode(@RequestParam("code") String code) throws Exception {
 
         if (StringUtils.isEmpty(code)){
-            throw new RRException("code不能为空");
+//            throw new Exception("Sam 错误");
+            throw new MyException("101", "Sam 错误");
         }
         BaiduCity baiduCity = baiduCityService.selectBDCityByCode(code);
         return ResponseModel.ok(baiduCity);
