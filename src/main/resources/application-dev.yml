@@ -21,7 +21,7 @@ spring:
 mybatis-plus:
   # 配置mapper.xml文件存放的位置，当Mapper文件跟对应的Mapper接口处于同一位置的时候可以不用指定该属性的值
   mapper-locations: classpath:mapper/*.xml
-  check-config-location: true
+#  check-config-location: true
 #  config-location: classpath:mybatis-config.xml   #设置mybatis的配置文件位置（报错，springboot不需要此配置文件）
   type-aliases-package: com.opentext.poi.entity   #设置别名包
   # 配置主键生成策略
@@ -32,8 +32,8 @@ mybatis-plus:
       # 字段策略 FieldStrategy:"忽略判断"  NOT_NULL:"非 NULL 判断")  NOT_EMPTY:"非空判断"
       select-strategy: NOT_EMPTY
   configuration:
-    # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
-    map-underscore-to-camel-case: true
+    # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射（不需要）
+#    map-underscore-to-camel-case: true
     # 如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段
     call-setters-on-nulls: true
     # 配置JdbcTypeForNull, oracle数据库必须配置
