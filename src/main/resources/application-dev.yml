@@ -8,13 +8,13 @@ spring:
     url: jdbc:oracle:thin:@10.245.39.139:1522:covisint
     driver-class-name: oracle.jdbc.driver.OracleDriver
 
-  data:
-    elasticsearch:
-      client:
-        reactive:
-          username: elasticsearch
-          password:
-          endpoints: 10.245.38.39:9200
+#  data:
+#    elasticsearch:
+#      client:
+#        reactive:
+#          username: elasticsearch
+#          password:
+#          endpoints: 10.245.38.39:9200
 
 
 # 配置mybatis-plus
